@@ -25,9 +25,12 @@ int main() {
         } else if (token == "exit") {
             cout << "Okay, good luck, " << username << endl;
             break;
+        } else if (token == "lol") {
+            cout << "Lol" << endl;
         } 
         else {
             cout << "Maksh: command not found, try 'help'" << endl;
         }
     }
 }
+
