@@ -19,6 +19,8 @@ Sometimes it even improves itself with new features! 😎
 2. Compile the project:
    ```bash
    g++ main.cpp -o maksh       # on Linux/Mac
+   g++ main.cpp -o maksh.exe   # on Windows
+   
 3. Run the terminal:
   ./maksh
 
