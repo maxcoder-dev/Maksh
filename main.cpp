@@ -5,7 +5,7 @@ using namespace std;
 
 
 int main() {
-    string username, token, version = "Maksh 1.0";
+    string username, token, version = "1.0";
     
     cout << "Welcome to the Maksh! Enter your username: ";
     cin >> username;
@@ -35,5 +35,6 @@ int main() {
         }
     }
 }
+
 
 
