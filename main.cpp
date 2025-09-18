@@ -5,23 +5,23 @@ using namespace std;
 
 
 int main() {
-    string username, token, version = "1.0";
+    string username, token, version = "Maksh 1.0";
     
     cout << "Welcome to the Maksh! Enter your username: ";
-    cin >> username;
+    getline(cin, username);
 
     bool running = true;
 
     while (running) {
         cout << username << " >> ";
-        cin >> token;
+        getline(cin, token);
 
         if (token == "whoami") {
-            cout << username << endl;
+            cout << username <<endl;
         } else if (token == "info") {
             cout << "Maksh version " << version << endl;
         } else if (token == "help") {
-            cout << "info, help, whoami, exit " << endl;
+            cout << "info, help, whoami, echo your_text, hi, lol, exit " << endl;
         } else if (token == "exit") {
             cout << "Okay, good luck, " << username << endl;
             break;
@@ -29,12 +29,12 @@ int main() {
             cout << "Lol" << endl;
         } else if (token == "hi") {
             cout << "Hello, " << username << endl;
-        } 
+        } else if (token.rfind("echo ", 0) == 0) { //Echo command
+            string text = token.substr(5); 
+            cout << text << endl;
+        }
         else {
             cout << "Maksh: command not found, try 'help'" << endl;
         }
     }
 }
-
-
-
