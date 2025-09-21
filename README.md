@@ -6,7 +6,7 @@ It’s designed to help beginners understand input/output, loops, and basic comm
 Sometimes it even improves itself with new features! 😎
 
 ## Features
-- Custom commands: `hi`, `lol`, `whoami`, `help`, `exit`
+- Custom commands: `hi`, `lol`, `whoami`, `help`, `exit`, `info`, `echo` 
 - Infinite loop until user decides to quit
 - Simple and clean terminal interface
 - Beginner-friendly and easy to understand
