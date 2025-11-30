@@ -4,42 +4,62 @@
 
 using namespace std;
 
-int main() {
-    string username, token, version = "Maksh 1.0";
+void printDate() {
+    time_t now = time(nullptr);
+    tm *ltm = localtime(&now);
+    char buffer[20];
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", ltm);
+    cout << buffer << endl;
+}
 
-    cout << "Welcome to the Maksh! Enter your username: ";
+int main() {
+    string username;
+    string version = "Maksh 1.1";
+
+    cout << "Welcome to Maksh. Enter your username: ";
     getline(cin, username);
 
+    string input;
     bool running = true;
 
     while (running) {
         cout << username << " >> ";
-        getline(cin, token);
+        getline(cin, input);
 
-        if (token == "whoami") {
+        if (input == "whoami") {
             cout << username << endl;
-        } else if (token == "info") {
+
+        } else if (input == "info") {
             cout << "Maksh version " << version << endl;
-        } else if (token == "help") {
-            cout << "info, help, whoami, echo your_text, hi, lol, date, exit" << endl;
-        } else if (token == "exit") {
-            cout << "Okay, good luck, " << username << endl;
-            break;
-        } else if (token == "lol") {
-            cout << "Lol" << endl;
-        } else if (token == "hi") {
+
+        } else if (input == "help") {
+            cout << "Available commands:\n"
+                 << "  info, help, whoami, echo <text>, hi, lol,\n"
+                 << "  date, exit\n";
+
+        } else if (input == "exit") {
+            cout << "Good luck, " << username << endl;
+            running = false;
+
+        } else if (input == "hi") {
             cout << "Hello, " << username << endl;
-        } else if (token == "date") { 
-            time_t now = time(0);
-            tm *ltm = localtime(&now);
-            char buffer[11];
-            strftime(buffer, sizeof(buffer), "%Y-%m-%d", ltm);
-            cout << buffer << endl;
-        } else if (token.rfind("echo ", 0) == 0) {
-            string text = token.substr(5);
-            cout << text << endl;
+
+        } else if (input == "lol") {
+            cout << "Lol" << endl;
+
+        } else if (input == "date") {
+            printDate();
+
+        } else if (input.rfind("echo ", 0) == 0) {
+            cout << input.substr(5) << endl;
+
+        } else if (input.empty()) {
+            continue;
+
         } else {
-            cout << "Maksh: command not found, try 'help'" << endl;
+            cout << "Maksh: command not found. Try 'help'" << endl;
         }
     }
+
+    return 0;
 }
