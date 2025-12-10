@@ -14,7 +14,7 @@ void printDate() {
 
 int main() {
     string username;
-    string version = "Maksh 1.1";
+    string version = "Maksh 1.2";
 
     cout << "Welcome to Maksh. Enter your username: ";
     getline(cin, username);
@@ -63,3 +63,4 @@ int main() {
 
     return 0;
 }
+
